@@ -23,10 +23,11 @@
 
 ![search](vimrc-search.jpg)
 
-!SLIDE center
+!SLIDE center bullets normal
 # my vimrc
 
-[vimrc](https://github.com/abachman/dotfiles/blob/master/.vimrc), [gvimrc](https://github.com/abachman/dotfiles/blob/master/.gvimrc)
+* [vimrc](https://github.com/abachman/dotfiles/blob/master/.vimrc)
+* [gvimrc](https://github.com/abachman/dotfiles/blob/master/.gvimrc)
 
 !SLIDE center
 # ignore scripting, it's not worth your time
