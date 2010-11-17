@@ -1,5 +1,7 @@
 { "name": "Using the Hell Out of Vim",
   "sections": [ 
-    {"section":"one"} 
+    {"section":"one", "name":"intro"},
+    {"section":"two"},
+    {"section":"three"}
   ]
 }
