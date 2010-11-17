@@ -17,8 +17,9 @@ body, .slide {
   line-height: 1.4em;
 }
 
-em { color: #BDB76B; }
+em { color: #ffd846; }
 strong { color: #FF80A0; }
+a { color: #3A85D9; }
 
 .dark-image {
   background-color: #000;
@@ -40,9 +41,6 @@ strong { color: #FF80A0; }
   padding-right: 20px;
 }
 
-.normal a {
-  color: #3A85D9;
-}
 
 .normal p {
   width: 520px;

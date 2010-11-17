@@ -5,7 +5,8 @@
 
 **Adam Bachman**  
 Baltimore Node  
-17 November 2010
+17 November 2010   
+[using-vim.heroku.com](http://using-vim.heroku.com)
 
 !SLIDE dark-image center
 

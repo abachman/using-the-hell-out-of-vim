@@ -34,5 +34,6 @@ Also known as "Visual Mode". Strong stuff.
 !SLIDE 
 # Use a cheat sheet
 
-!SLIDE full-page
+!SLIDE center
+
 ![cheat sheet](vi-vim-cheat-sheet.gif)
