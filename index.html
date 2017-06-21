@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Using the Hell Out of Vim</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/>
+
+  
+
+  <link rel="stylesheet" type="text/css" href=".//css/highlight/default.css"  />
+  <link rel="stylesheet" type="text/css" href=".//css/mermaid-6.0.0.css" />
+  <link rel="stylesheet" type="text/css" href=".//css/font-awesome-4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href=".//css/jquery-ui-1.12.1.css">
+  <link rel="stylesheet" type="text/css" href=".//css/showoff.css?v=0.18.1" />
+  <link rel="stylesheet" type="text/css" href=".//css/zoomline-0.0.1.css">
+
+  <script type="text/javascript" src=".//js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src=".//js/jquery-ui-1.12.1.js"></script>
+
+  <script type="text/javascript" src=".//js/jquery.cycle.all-2.8.0.js"></script>
+  <script type="text/javascript" src=".//js/jquery.batchImageLoad-1.0.0.js"></script>
+  <script type="text/javascript" src=".//js/jquery.parsequery.min-6a20f83.js"></script>
+  <script type="text/javascript" src=".//js/jquery.doubletap-4ff02c5.js"></script>
+  <script type="text/javascript" src=".//js/highlight.pack-9.2.0.js"></script>
+  <script type="text/javascript" src=".//js/jTypeWriter-1.1.js"></script>
+  <script type="text/javascript" src=".//js/bigtext-0.1.8.js"></script>
+  <script type="text/javascript" src=".//js/zoomline-0.0.1.js"></script>
+  <script type="text/javascript" src=".//js/simpleStrings-0.0.1.js"></script>
+  <script type="text/javascript" src=".//js/mermaid-6.0.0-min.js"></script>
+
+  <script type="text/javascript" src=".//js/coffee-script-1.1.3-pre.js"></script>
+
+  <script type="text/javascript" src=".//js/annotations.js?v=0.18.1"></script>
+  <script type="text/javascript" src=".//js/showoff.js?v=0.18.1"></script>
+
+  
+    <link rel="stylesheet" href=".//file/styles.css" type="text/css"/>
+  
+
+  
+
+  <script type="text/javascript">
+    $(function(){
+      setupPreso(false, './');
+    });
+
+    editUrl     = "";
+    interactive = false;
+    master      = false;
+
+    keymap               = {
+  "space": "NEXT",
+  "d": "DEBUG",
+  "up": "PREV",
+  "left": "PREV",
+  "pageup": "PREV",
+  "down": "NEXT",
+  "right": "NEXT",
+  "pagedown": "NEXT",
+  "R": "RELOAD",
+  "r": "REFRESH",
+  "c": "CONTENTS",
+  "t": "CONTENTS",
+  "h": "HELP",
+  "/": "HELP",
+  "?": "HELP",
+  "b": "BLANK",
+  ".": "BLANK",
+  "F": "FOOTER",
+  "f": "FOLLOW",
+  "n": "NOTES",
+  "esc": "CLEAR",
+  "p": "PAUSE",
+  "P": "PRESHOW",
+  "x": "EXECUTE",
+  "f5": "EXECUTE"
+};
+    keycode_dictionary   = {
+  "0": "\\",
+  "8": "backspace",
+  "9": "tab",
+  "12": "num",
+  "13": "enter",
+  "16": "shift",
+  "17": "ctrl",
+  "18": "alt",
+  "19": "pause",
+  "20": "caps",
+  "27": "esc",
+  "32": "space",
+  "33": "pageup",
+  "34": "pagedown",
+  "35": "end",
+  "36": "home",
+  "37": "left",
+  "38": "up",
+  "39": "right",
+  "40": "down",
+  "44": "print",
+  "45": "insert",
+  "46": "delete",
+  "48": "0",
+  "49": "1",
+  "50": "2",
+  "51": "3",
+  "52": "4",
+  "53": "5",
+  "54": "6",
+  "55": "7",
+  "56": "8",
+  "57": "9",
+  "59": ";",
+  "61": "=",
+  "65": "a",
+  "66": "b",
+  "67": "c",
+  "68": "d",
+  "69": "e",
+  "70": "f",
+  "71": "g",
+  "72": "h",
+  "73": "i",
+  "74": "j",
+  "75": "k",
+  "76": "l",
+  "77": "m",
+  "78": "n",
+  "79": "o",
+  "80": "p",
+  "81": "q",
+  "82": "r",
+  "83": "s",
+  "84": "t",
+  "85": "u",
+  "86": "v",
+  "87": "w",
+  "88": "x",
+  "89": "y",
+  "90": "z",
+  "91": "cmd",
+  "92": "cmd",
+  "93": "cmd",
+  "96": "num_0",
+  "97": "num_1",
+  "98": "num_2",
+  "99": "num_3",
+  "100": "num_4",
+  "101": "num_5",
+  "102": "num_6",
+  "103": "num_7",
+  "104": "num_8",
+  "105": "num_9",
+  "106": "num_multiply",
+  "107": "num_add",
+  "108": "num_enter",
+  "109": "num_subtract",
+  "110": "num_decimal",
+  "111": "num_divide",
+  "112": "f1",
+  "113": "f2",
+  "114": "f3",
+  "115": "f4",
+  "116": "f5",
+  "117": "f6",
+  "118": "f7",
+  "119": "f8",
+  "120": "f9",
+  "121": "f10",
+  "122": "f11",
+  "123": "f12",
+  "124": "print",
+  "144": "num",
+  "145": "scroll",
+  "173": "-",
+  "186": ";",
+  "187": "=",
+  "188": ",",
+  "189": "-",
+  "190": ".",
+  "191": "/",
+  "192": "`",
+  "219": "[",
+  "220": "\\",
+  "221": "]",
+  "222": "'",
+  "223": "`",
+  "224": "cmd",
+  "225": "alt",
+  "57392": "ctrl",
+  "63289": "num"
+};
+    keycode_shifted_keys = {
+  "0": ")",
+  "1": "!",
+  "2": "@",
+  "3": "#",
+  "4": "$",
+  "5": "%",
+  "6": "^",
+  "7": "&",
+  "8": "*",
+  "9": "(",
+  "/": "?",
+  ".": ">",
+  ",": "<",
+  "'": "\"",
+  ";": ":",
+  "[": "{",
+  "]": "}",
+  "\\": "|",
+  "`": "~",
+  "=": "+",
+  "-": "_"
+};
+    user_translations    = {
+};
+
+    I18n = new translation({"name":"Showoff Presentation","menu":{"title":"Showoff Menu","table_of_contents":"Table of Contents","downloads":"Downloads","feedback":{"label":"Send Feedback","description":"This slide is...","worst":"Terrible","best":"Awesome","why":"Why...?","send":"Send"},"pace":{"label":"The presenter should...","slower":"Slow Down","faster":"Speed Up"},"question":{"label":"Ask a Question","placeholder":"Ask a question..."},"edit":"Edit Current Slide","clear_annotations":"Clear Annotations","language":"Content Language","close":"Close","help":"Press <code>?</code> for help.","anonymous":"All features are anonymous."},"navigation":{"next":"Next","previous":"Previous"},"loading":"loading presentation...","activity_complete":"Activity complete","follow":{"label":"Follow Mode:"},"refresh":"Are you sure you want to refresh the slide content?\n\n(Use `RELOAD` to fully reload the entire UI)","reload":"Are you sure you want to reload Showoff?","preshow":{"prompt":"Minutes from now to start?","resume":"Resuming in:"},"downloads":{"title":"File Downloads"},"help":{"title":"Help","next":"Move to the next slide.","prev":"Move to the previous slide.","contents":"Show the table of contents menu.","follow":"Toggle follow mode.","help":"Show this help dialog.","refresh":"Refresh slide content.","reload":"Completely reload Showoff.","blank":"Blank the screen.","footer":"Toggle the display footer.","notes":"Toggle notes display.","clear":"Clear code execution results.","pause":"Pause the presentation.","preshow":"Display slideshow of <tt>preshow</tt> images on a timer.","execute":"Execute the first visible code block.","debug":"Show debugging information.","close":"Close"},"stats":{"title":"Viewing Statistics","stray":"of your audience is not viewing the same slide you are.","idle":"of your audience is idle.","current":"Slides currently being viewed","elapsed":"Elapsed time spent on each slide","nodata":"No data to display.","allcurrent":"All audience members are viewing the presenter's slide."},"forms":{"display":"Display Results","save":"Save"},"presenter":{"topbar":{"annotations":"Annotations","edit":"Edit Slide","report":"Report Issue With Slide","stats":"Viewing Statistics","downloads":"Downloads","display":"Display Window","print":"Print Slides","settings":"Settings","newpage":"Open in a new page...","tooltip":{"annotations":"Enable the annotations subsystem.","edit":"Edit current slide in new window.","report":"Report an issue with the current slide.","stats":"See the slides your audience is interacting with.","downloads":"Open the file downloads in a menu or new page.","display":"Enable the Display Window; you should put this on the projector.","print":"Print slides using a new window.","settings":"Open the Settings dialog."}},"preview":{"next":"Next","previous":"Previous"},"mobile":{"update":"Update"},"notes":{"label":"Showoff Notes","personal":"Personal Notes"},"timer":{"label":"Timer:","start":"Start","pause":"Pause","resume":"Resume","cancel":"Cancel","unit":"minutes"},"pace":{"faster":"Speed Up!","slower":"Slow Down!"},"questions":"Audience Questions","annotation":{"tools":"Tools","lines":"Lines","shapes":"Shapes"},"status":{"label":"Slides:"},"settings":{"label":"Settings","close":"Close","follower":{"label":"Update Follower","tooltip":"Send slide change notifications.","description":"When this is enabled, the Showoff server will track your slide changes. Disable it to observe the presentation without inadvertently causing slide changes."},"remote":{"label":"Enable Remote","tooltip":"Enables tracking of other presenters.","description":"When this is enabled, you can load the presenter in another browser (typically on your mobile phone) to control the presentation."},"layout":{"label":"Layout","default":"Default Layout","thumbs":"Display thumbnail previews of the next and previous slides.","beside":"Display the next slide as a large preview in the main presenter view.","floating":"Open the next slide as a floating window.","confirmation":"Browser security requires confirmation before opening a new window.","open":"Open Window","cancel":"cancel","reset":{"label":"Clear Showoff settings.","tooltip":"Reset Showoff UI settings to default values."}},"language":{"label":"Content Language","tooltip":"Select from available translations, or autoselect based on your browser settings.","description":"This presentation is available in different languages. Choose the language you would like to view or leave it at <tt>automatic</tt> to use your browser settings."}},"print":{"label":"Choose type of printed notes","description":"Select the content you'd like to show under the slides.","none":"Don't include notes","notes":"Presenter Notes","handouts":"Audience Handouts"}},"language":{"auto":"Automatic","disable":"Disable Translations"},"error":{"file_not_found":"File Not Found!"}});
+
+  </script>
+
+</head>
+
+<body>
+<div id="questionsIndicator"></div>
+
+<i id="hamburger" class="fa fa-bars fa-2x"></i>
+<div id="sidebarWrapper">
+    <div id="navigationHover"></div>
+    <div id="feedbackSidebar" class="sideMenu">
+    <img id="disconnected" src=".//css/disconnected.png">
+    <h3>Showoff Menu</h3>
+    <div id="navToggle" class="buttonWrapper"><i class=" fa fa-bookmark"></i> Table of Contents</div>
+    <div id="navigation" class="submenu"></div>
+    
+    <hr>
+
+    
+
+    
+
+    <div id="closeMenu" class="buttonWrapper"><i class="fa fa-close"></i> Close</div>
+    <hr>
+
+    <small>
+        <p>Press <code>?</code> for help.</p>
+        <p>All features are anonymous.</p>
+    </small>
+    </div>
+    <div id="sidebarExit"></div>
+</div>
+<div id="help-modal" title="Help">
+  <div id="help">
+    <div>
+      <span class="description">Move to the next slide.</span>
+      <span class="action">NEXT</span>
+      <span class="hotkeys"><span class="key">space</span><span class="key">down</span><span class="key">right</span><span class="key">pagedown</span></span>
+    </div>
+    <div>
+      <span class="description">Move to the previous slide.</span>
+      <span class="action">PREV</span>
+      <span class="hotkeys"><span class="key">up</span><span class="key">left</span><span class="key">pageup</span></span>
+    </div>
+    <div>
+      <span class="description">Show the table of contents menu.</span>
+      <span class="action">CONTENTS</span>
+      <span class="hotkeys"><span class="key">c</span><span class="key">t</span></span>
+    </div>
+    <div>
+      <span class="description">Toggle follow mode.</span>
+      <span class="action">FOLLOW</span>
+      <span class="hotkeys"><span class="key">f</span></span>
+    </div>
+    <div>
+      <span class="description">Show this help dialog.</span>
+      <span class="action">HELP</span>
+      <span class="hotkeys"><span class="key">h</span><span class="key">/</span><span class="key">?</span></span>
+    </div>
+
+    <hr />
+
+    <div>
+      <span class="description">Refresh slide content.</span>
+      <span class="action">REFRESH</span>
+      <span class="hotkeys"><span class="key">r</span></span>
+    </div>
+    <div>
+      <span class="description">Completely reload Showoff.</span>
+      <span class="action">RELOAD</span>
+      <span class="hotkeys"><span class="key">R</span></span>
+    </div>
+    <div>
+      <span class="description">Blank the screen.</span>
+      <span class="action">BLANK</span>
+      <span class="hotkeys"><span class="key">b</span><span class="key">.</span></span>
+    </div>
+    <div>
+      <span class="description">Toggle the display footer.</span>
+      <span class="action">FOOTER</span>
+      <span class="hotkeys"><span class="key">F</span></span>
+    </div>
+    <div>
+      <span class="description">Toggle notes display.</span>
+      <span class="action">NOTES</span>
+      <span class="hotkeys"><span class="key">n</span></span>
+    </div>
+    <div>
+      <span class="description">Clear code execution results.</span>
+      <span class="action">CLEAR</span>
+      <span class="hotkeys"><span class="key">esc</span></span>
+    </div>
+    <div>
+      <span class="description">Pause the presentation.</span>
+      <span class="action">PAUSE</span>
+      <span class="hotkeys"><span class="key">p</span></span>
+    </div>
+    <div>
+      <span class="description">Display slideshow of <tt>preshow</tt> images on a timer.</span>
+      <span class="action">PRESHOW</span>
+      <span class="hotkeys"><span class="key">P</span></span>
+    </div>
+    <div>
+      <span class="description">Execute the first visible code block.</span>
+      <span class="action">EXECUTE</span>
+      <span class="hotkeys"><span class="key">x</span><span class="key">f5</span></span>
+    </div>
+
+    <hr />
+
+    <div>
+      <span class="description">Show debugging information.</span>
+      <span class="action">DEBUG</span>
+      <span class="hotkeys"><span class="key">d</span></span>
+    </div>
+  </div>
+</div>
+
+<div id="preso"><center>loading presentation...</center></div>
+
+<div id="notes"></div>
+
+<footer id="footer">
+  <span id="followLabel" class="container">Follow Mode: <i id="followMode" class="fa fa-ban" aria-hidden="true"></i></span>
+  <span id="slideInfo" class="container"></span>
+  <span id="debugInfo" class="container"></span>
+  <span id="notesInfo" class="container"></span>
+  <span id="slideFilename" class="container"></span>
+  <img id="disconnected" src=".//css/disconnected.png" />
+</footer>
+
+<div id="slides" class="offscreen" style="display:none;">
+<div data-section="01_mindfulness" data-title="01_intro" id="01_mindfulness_01_intro1" class="slide title-slide" data-transition="none">
+<div class="content title-slide" ref="01_mindfulness/01_intro:1">
+<h1>Using the Hell Out of Vim</h1>
+
+<h2><em>Seeking Editor Purity by Driving Evil Away</em></h2>
+
+<p><a href="http://using-vim.heroku.com">using-vim.heroku.com</a></p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="01_mindfulness" data-title="01_intro" id="01_mindfulness_01_intro2" class="slide dark-image center" data-transition="none">
+<div class="content dark-image center" ref="01_mindfulness/01_intro:2">
+<p><img src="./file//01_mindfulness/fire_in_hell.jpg" alt="fire!"></p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="01_mindfulness" data-title="01_intro" id="01_mindfulness_01_intro3" class="slide dark-image center" data-transition="none">
+<div class="content dark-image center" ref="01_mindfulness/01_intro:3">
+<h1>THIS<br>REPRESENTS<br>BAD FEELINGS</h1>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="01_mindfulness" data-title="01_intro" id="01_mindfulness_01_intro4" class="slide blue-image center" data-transition="none">
+<div class="content blue-image center" ref="01_mindfulness/01_intro:4">
+<p><img src="./file//01_mindfulness/stairway-to-heaven.jpg" alt="sky"></p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="01_mindfulness" data-title="01_intro" id="01_mindfulness_01_intro5" class="slide blue-image center" data-transition="none">
+<div class="content blue-image center" ref="01_mindfulness/01_intro:5">
+<h1>THIS<br>REPRESENTS<br>GOOD FEELINGS</h1>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="01_mindfulness" data-title="01_intro" id="01_mindfulness_01_intro6" class="slide normal small" data-transition="none">
+<div class="content normal small" ref="01_mindfulness/01_intro:6">
+<h1>The Zealots Are Wrong</h1>
+
+<p>Invariably, the master vim users that were helping me make the switch would encourage me to stick it out. "If you just give it a few weeks, you'll never want to switch back."</p>
+
+<p>The last few times someone tried to get me to switch to vim, I issued them a simple challenge. Can you tell me a way to switch that will not significantly reduce my productivity for the first few weeks?</p>
+
+<p><a href="http://yehudakatz.com/2010/07/29/everyone-who-tried-to-convince-me-to-use-vim-was-wrong/">Yehuda Katz, "Everyone Who Tried to Convince Me to use Vim was Wrong"</a></p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="01_mindfulness" data-title="01_intro" id="01_mindfulness_01_intro7" class="slide normal bullets incremental" data-transition="none">
+<div class="content normal bullets incremental" ref="01_mindfulness/01_intro:7">
+<h1>What Are We Doing Here?</h1>
+
+<ul>
+<li>Practice</li>
+<li>Examples</li>
+<li>Lots of Q&amp;A</li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="01_mindfulness" data-title="01_intro" id="01_mindfulness_01_intro8" class="slide normal" data-transition="none">
+<div class="content normal" ref="01_mindfulness/01_intro:8">
+<h1>But First...</h1>
+
+<h2>The Philosohy Part</h2>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="01_mindfulness" data-title="02_philosophy" id="01_mindfulness_02_philosophy1" class="slide normal" data-transition="none">
+<div class="content normal" ref="01_mindfulness/02_philosophy:1">
+<h1>Start Slowly</h1>
+
+<p>Start with the things you're already comfortable with, mouse, arrow keys,
+Ctrl-S to save. Where possible, make no changes.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="01_mindfulness" data-title="02_philosophy" id="01_mindfulness_02_philosophy2" class="slide normal" data-transition="none">
+<div class="content normal" ref="01_mindfulness/02_philosophy:2">
+<h1>Small Changes</h1>
+
+<p>Adapt slowly, incrementally to vim's strange ways. Choose one thing you want to
+learn, learn it, practice it.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="01_mindfulness" data-title="02_philosophy" id="01_mindfulness_02_philosophy3" class="slide normal" data-transition="none">
+<div class="content normal" ref="01_mindfulness/02_philosophy:3">
+<h1>Change Yourself</h1>
+
+<p>Decide how you want to work, then work that way.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="01_mindfulness" data-title="02_philosophy" id="01_mindfulness_02_philosophy4" class="slide normal" data-transition="none">
+<div class="content normal" ref="01_mindfulness/02_philosophy:4">
+<h1>Change the Tool</h1>
+
+<p>Decide how you want vim to act, then make it act that way.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="02_usage" data-title="03_practice_basic" id="02_usage_03_practice_basic1" class="slide normal center" data-transition="none">
+<div class="content normal center" ref="02_usage/03_practice_basic:1">
+<h1>Basic Skills</h1>
+
+<p>Open, close, edit, save.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="02_usage" data-title="03_practice_basic" id="02_usage_03_practice_basic2" class="slide code" data-transition="none">
+<div class="content code" ref="02_usage/03_practice_basic:2">
+<h1>Basic Skills</h1>
+
+<pre class="highlight"><code class="language-vim">vim, i, &lt;esc&gt;, :q, :e, :w, &lt;CR&gt;</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="02_usage" data-title="03_practice_basic" id="02_usage_03_practice_basic3" class="slide normal center" data-transition="none">
+<div class="content normal center" ref="02_usage/03_practice_basic:3">
+<h1><em>Digression</em></h1>
+
+<h2>Modal Editing</h2>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="02_usage" data-title="03_practice_basic" id="02_usage_03_practice_basic4" class="slide normal center" data-transition="none">
+<div class="content normal center" ref="02_usage/03_practice_basic:4">
+<h1><em>Digression</em></h1>
+
+<h2>vimrc</h2>
+
+<p>Make saving easier, make things prettier.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="02_usage" data-title="04_practice_movement" id="02_usage_04_practice_movement1" class="slide normal center" data-transition="none">
+<div class="content normal center" ref="02_usage/04_practice_movement:1">
+<h1>Movement</h1>
+
+<p>Getting around at normal speeds vs. getting around quickly.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="02_usage" data-title="04_practice_movement" id="02_usage_04_practice_movement2" class="slide normal center" data-transition="none">
+<div class="content normal center" ref="02_usage/04_practice_movement:2">
+<h2>Movement Keys</h2>
+
+<pre class="highlight"><code class="language-vim">h j l k
+e w b</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="02_usage" data-title="04_practice_movement" id="02_usage_04_practice_movement3" class="slide normal center" data-transition="none">
+<div class="content normal center" ref="02_usage/04_practice_movement:3">
+<h2>Search Based Movement</h2>
+
+<p>search mode, move to <strong>f</strong>irst character, move un<strong>t</strong>il you find</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="02_usage" data-title="04_practice_movement" id="02_usage_04_practice_movement4" class="slide normal center" data-transition="none">
+<div class="content normal center" ref="02_usage/04_practice_movement:4">
+<h2>Search Based Movement</h2>
+
+<pre class="highlight"><code class="language-vim">/ f t</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="02_usage" data-title="05_practice_selection" id="02_usage_05_practice_selection1" class="slide normal center" data-transition="none">
+<div class="content normal center" ref="02_usage/05_practice_selection:1">
+<h1>Selection</h1>
+
+<p>Also known as "Visual Mode". Strong stuff.</p>
+
+<pre><code>v V &lt;C-v&gt;
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="02_usage" data-title="05_practice_selection" id="02_usage_05_practice_selection2" class="slide normal center" data-transition="none">
+<div class="content normal center" ref="02_usage/05_practice_selection:2">
+<h1>Yank and Paste</h1>
+
+<p><strong>y</strong>ank, <strong>p</strong>aste, <strong>c</strong>hange, <strong>d</strong>elete</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="02_usage" data-title="05_practice_selection" id="02_usage_05_practice_selection3" class="slide normal center" data-transition="none">
+<div class="content normal center" ref="02_usage/05_practice_selection:3">
+<h1>Yank and Paste</h1>
+
+<pre><code>y p P
+c d
+yy dd
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="02_usage" data-title="05_practice_selection" id="02_usage_05_practice_selection4" class="slide normal center" data-transition="none">
+<div class="content normal center" ref="02_usage/05_practice_selection:4">
+<h1>COMBO! Selective Movement</h1>
+
+<p><strong>v</strong>isual select <strong>a</strong>ll of a <strong>w</strong>ord, <strong>c</strong>hange <strong>i</strong>nside the <strong>"</strong>'s</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="02_usage" data-title="05_practice_selection" id="02_usage_05_practice_selection5" class="slide normal center" data-transition="none">
+<div class="content normal center" ref="02_usage/05_practice_selection:5">
+<h1>COMBO! Selective Movement</h1>
+
+<pre><code>vaw 
+vi"
+va"
+ci(
+ciw
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="02_usage" data-title="05_practice_selection" id="02_usage_05_practice_selection6" class="slide" data-transition="none">
+<div class="content " ref="02_usage/05_practice_selection:6">
+<h1>Use a cheat sheet</h1>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="02_usage" data-title="05_practice_selection" id="02_usage_05_practice_selection7" class="slide center" data-transition="none">
+<div class="content center" ref="02_usage/05_practice_selection:7">
+<p><img src="./file//02_usage/vi-vim-cheat-sheet.gif" alt="cheat sheet"></p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="02_usage" data-title="06_practice_files" id="02_usage_06_practice_files1" class="slide normal bullets" data-transition="none">
+<div class="content normal bullets" ref="02_usage/06_practice_files:1">
+<h1>Handling Multiple Files</h1>
+
+<ul>
+<li>splitting</li>
+<li>search</li>
+<li>essential plugins</li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="02_usage" data-title="06_practice_files" id="02_usage_06_practice_files2" class="slide normal bullets" data-transition="none">
+<div class="content normal bullets" ref="02_usage/06_practice_files:2">
+<h1>Splitting</h1>
+
+<p>&lt;C-w&gt; + ...</p>
+
+<ul>
+<li>
+<strong>v</strong>ertical split</li>
+<li>horizontal <strong>s</strong>plit</li>
+<li>
+<strong>q</strong>uit</li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="02_usage" data-title="06_practice_files" id="02_usage_06_practice_files3" class="slide normal" data-transition="none">
+<div class="content normal" ref="02_usage/06_practice_files:3">
+<h1>Moving around splits</h1>
+
+<pre><code>inoremap &lt;C-h&gt; &lt;esc&gt;&lt;C-w&gt;&lt;C-h&gt;
+inoremap &lt;C-j&gt; &lt;esc&gt;&lt;C-w&gt;&lt;C-j&gt;
+inoremap &lt;C-k&gt; &lt;esc&gt;&lt;C-w&gt;&lt;C-k&gt;
+inoremap &lt;C-l&gt; &lt;esc&gt;&lt;C-w&gt;&lt;C-l&gt;
+noremap &lt;C-h&gt; &lt;C-w&gt;&lt;C-h&gt;
+noremap &lt;C-j&gt; &lt;C-w&gt;&lt;C-j&gt;
+noremap &lt;C-k&gt; &lt;C-w&gt;&lt;C-k&gt;
+noremap &lt;C-l&gt; &lt;C-w&gt;&lt;C-l&gt;
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="02_usage" data-title="06_practice_files" id="02_usage_06_practice_files4" class="slide normal center" data-transition="none">
+<div class="content normal center" ref="02_usage/06_practice_files:4">
+<h1>Search</h1>
+
+<p>grep</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="02_usage" data-title="06_practice_files" id="02_usage_06_practice_files5" class="slide normal" data-transition="none">
+<div class="content normal" ref="02_usage/06_practice_files:5">
+<h1>Search</h1>
+
+<pre><code>:grep PATTERN
+:cn
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="02_usage" data-title="06_practice_files" id="02_usage_06_practice_files6" class="slide normal center" data-transition="none">
+<div class="content normal center" ref="02_usage/06_practice_files:6">
+<h1>Essential Plugins</h1>
+
+<h2>NERDTree</h2>
+
+<h2>Command-T</h2>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="03_extension" data-title="07_extending_vim" id="03_extension_07_extending_vim1" class="slide bullets incremental" data-transition="none">
+<div class="content bullets incremental" ref="03_extension/07_extending_vim:1">
+<h1>Extending vim</h1>
+
+<ul>
+<li>macros (temporary)</li>
+<li>vimrc</li>
+<li>scripting</li>
+<li>plugins</li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="03_extension" data-title="07_extending_vim" id="03_extension_07_extending_vim2" class="slide normal" data-transition="none">
+<div class="content normal" ref="03_extension/07_extending_vim:2">
+<h1>Macro Demonstration</h1>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="03_extension" data-title="07_extending_vim" id="03_extension_07_extending_vim3" class="slide center" data-transition="none">
+<div class="content center" ref="03_extension/07_extending_vim:3">
+<h1>Number 1 Rule of Modifying Vim...</h1>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="03_extension" data-title="07_extending_vim" id="03_extension_07_extending_vim4" class="slide center" data-transition="none">
+<div class="content center" ref="03_extension/07_extending_vim:4">
+<h1><strong>SOMEONE HAS ALREADY DONE IT</strong></h1>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="03_extension" data-title="07_extending_vim" id="03_extension_07_extending_vim5" class="slide normal center bullets" data-transition="none">
+<div class="content normal center bullets" ref="03_extension/07_extending_vim:5">
+<ul>
+<li><a href="https://github.com/search?type=Repositories&amp;language=vim&amp;q=vimrc&amp;repo=&amp;langOverride=&amp;x=0&amp;y=27&amp;start_value=1">github.com</a></li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="03_extension" data-title="07_extending_vim" id="03_extension_07_extending_vim6" class="slide full-page" data-transition="none">
+<div class="content full-page" ref="03_extension/07_extending_vim:6">
+<p><img src="./file//03_extension/vimrc-search.jpg" alt="search"></p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="03_extension" data-title="07_extending_vim" id="03_extension_07_extending_vim7" class="slide center bullets normal" data-transition="none">
+<div class="content center bullets normal" ref="03_extension/07_extending_vim:7">
+<h1>my vimrc</h1>
+
+<ul>
+<li><a href="https://github.com/abachman/dotfiles/blob/master/.vimrc">vimrc</a></li>
+<li><a href="https://github.com/abachman/dotfiles/blob/master/.gvimrc">gvimrc</a></li>
+</ul>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="03_extension" data-title="07_extending_vim" id="03_extension_07_extending_vim8" class="slide center" data-transition="none">
+<div class="content center" ref="03_extension/07_extending_vim:8">
+<h1>ignore scripting, it's not worth your time</h1>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="03_extension" data-title="07_extending_vim" id="03_extension_07_extending_vim9" class="slide normal center" data-transition="none">
+<div class="content normal center" ref="03_extension/07_extending_vim:9">
+<h1>some very handy plugins</h1>
+
+<p>NERDTree, Command-T, rails.vim, pathogen, Tabularize, closetag, zencoding, tim pope</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="04_beyond" data-title="08_extending_your_brain" id="04_beyond_08_extending_your_brain1" class="slide center normal" data-transition="none">
+<div class="content center normal" ref="04_beyond/08_extending_your_brain:1">
+<h1>What's Next?</h1>
+
+<p>Keep using it.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="04_beyond" data-title="08_extending_your_brain" id="04_beyond_08_extending_your_brain2" class="slide center normal" data-transition="none">
+<div class="content center normal" ref="04_beyond/08_extending_your_brain:2">
+<h1>What's Next?</h1>
+
+<p>Find reliable resources (like <a href="http://vimcasts.org">vimcasts.org</a>)</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="04_beyond" data-title="08_extending_your_brain" id="04_beyond_08_extending_your_brain3" class="slide full-page" data-transition="none">
+<div class="content full-page" ref="04_beyond/08_extending_your_brain:3">
+<p><img src="./file//04_beyond/vim-casts.png" alt="vim casts"></p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="04_beyond" data-title="08_extending_your_brain" id="04_beyond_08_extending_your_brain4" class="slide center normal" data-transition="none">
+<div class="content center normal" ref="04_beyond/08_extending_your_brain:4">
+<h1>What's Next?</h1>
+
+<p>Ask questions (I'm usually around)</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="04_beyond" data-title="08_extending_your_brain" id="04_beyond_08_extending_your_brain5" class="slide center normal" data-transition="none">
+<div class="content center normal" ref="04_beyond/08_extending_your_brain:5">
+<h1>What's Next?</h1>
+
+<p>Have fun, this isn't punishment.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="04_beyond" data-title="08_extending_your_brain" id="04_beyond_08_extending_your_brain6" class="slide center normal" data-transition="none">
+<div class="content center normal" ref="04_beyond/08_extending_your_brain:6">
+<h1>What's Next?</h1>
+
+<p>Take it seriously, a craftsperson should know their tools.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="04_beyond" data-title="09_finale" id="04_beyond_09_finale" class="slide center normal" data-transition="none">
+<div class="content center normal" ref="04_beyond/09_finale">
+<h1>Done</h1>
+
+<p>Adam Bachman<br>
+<a href="mailto:adam.bachman@gmail.com">adam.bachman@gmail.com</a><br>
+<a href="http://github.com/abachman">github.com/abachman</a><br>
+<a href="http://adambachman.org">adambachman.org</a></p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+</div>
+<div id="buttonNav">
+  <div id="buttonPrev"><i class="fa fa-chevron-left fa-lg"></i> Previous</div><div id="buttonNext">Next <i class="fa fa-chevron-right fa-lg"></i></div>
+</div>
+<div id="pauseScreen">
+  PAUSED
+</div>
+
+</body>
+</html>
