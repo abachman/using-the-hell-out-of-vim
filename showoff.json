@@ -1,8 +1,8 @@
 { "name": "Using the Hell Out of Vim",
-  "sections": [ 
-    {"section":"mindfulness"},
-    {"section":"usage"},
-    {"section":"extension"},
-    {"section":"beyond"}
+  "sections": [
+    {"section":"01_mindfulness"},
+    {"section":"02_usage"},
+    {"section":"03_extension"},
+    {"section":"04_beyond"}
   ]
 }

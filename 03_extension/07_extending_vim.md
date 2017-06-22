@@ -9,30 +9,38 @@
 !SLIDE normal
 # Macro Demonstration
 
-!SLIDE center
+!SLIDE
 # Number 1 Rule of Modifying Vim...
 
-!SLIDE center
+!SLIDE
 # **SOMEONE HAS ALREADY DONE IT**
 
-!SLIDE normal center bullets
+!SLIDE normal bullets
 
 * [github.com](https://github.com/search?type=Repositories&language=vim&q=vimrc&repo=&langOverride=&x=0&y=27&start_value=1)
 
-!SLIDE full-page
+!SLIDE[bg=03_extension/vimrc-search-full.png] background-fit
 
-![search](vimrc-search.jpg)
+!SLIDE center
 
-!SLIDE center bullets normal
+![search](vimrc-search-highlight.png)
+
+!SLIDE bullets normal
 # my vimrc
 
 * [vimrc](https://github.com/abachman/dotfiles/blob/master/.vimrc)
-* [gvimrc](https://github.com/abachman/dotfiles/blob/master/.gvimrc)
+* [gvimrc](https://github.com/abachman/dotfiles/blob/master/.gvimrc) (just for the GUI)
 
-!SLIDE center
+!SLIDE
 # ignore scripting, it's not worth your time
 
-!SLIDE normal center
+!SLIDE normal
 # some very handy plugins
 
-NERDTree, Command-T, rails.vim, pathogen, Tabularize, closetag, zencoding, tim pope
+First: **pathogen** or other plugin loader
+
+NERDTree, ctrlp, rails.vim, Tabularize, closetag, etc.
+
+!SLIDE full-image
+
+![others](current-plugins.png)

@@ -4,8 +4,6 @@ body, .slide {
   border: 0px;
 }
 
-#footer { display: none; }
-
 .title-slide {
   text-align: center;
 }
@@ -41,14 +39,13 @@ a { color: #3A85D9; }
   padding-right: 20px;
 }
 
-
-.normal p {
-  width: 520px;
-  margin: 10px auto;
-  font-size: 38px;
+pre {
+  background-color: #F0F0F0;
+  color: #000000;
+  padding: 1em;
 }
 
-.text-heavy p {
-  font-size: 24px;
+code {
+  background-color: #F0F0F0;
+  color: #000000;
 }
-
