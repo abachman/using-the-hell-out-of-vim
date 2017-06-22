@@ -385,8 +385,8 @@
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="01_mindfulness" data-title="01_intro" id="01_mindfulness_01_intro6" class="slide normal small" data-transition="none">
-<div class="content normal small" ref="01_mindfulness/01_intro:6">
+<div data-section="01_mindfulness" data-title="01_intro" id="01_mindfulness_01_intro6" class="slide normal" data-transition="none">
+<div class="content normal" ref="01_mindfulness/01_intro:6">
 <h1>The Zealots Are Wrong</h1>
 
 <p>Invariably, the master vim users that were helping me make the switch would encourage me to stick it out. "If you just give it a few weeks, you'll never want to switch back."</p>
@@ -421,8 +421,9 @@
 <div class="content normal" ref="01_mindfulness/02_philosophy:1">
 <h1>Start Slowly</h1>
 
-<p>Start with the things you're already comfortable with, mouse, arrow keys,
-Ctrl-S to save. Where possible, make no changes.</p>
+<p>Start with the things you're already comfortable with, mouse, arrow keys, ⌘-s to save.</p>
+
+<p>As much as possible, make no changes to your workflow.</p>
 </div>
 <canvas class="annotations"></canvas>
 </div>
@@ -448,11 +449,13 @@ learn, learn it, practice it.</p>
 <h1>Change the Tool</h1>
 
 <p>Decide how you want vim to act, then make it act that way.</p>
+
+<p>There's probably a plugin for the thing you're thinking of.</p>
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="02_usage" data-title="03_practice_basic" id="02_usage_03_practice_basic1" class="slide normal center" data-transition="none">
-<div class="content normal center" ref="02_usage/03_practice_basic:1">
+<div data-section="02_usage" data-title="03_practice_basic" id="02_usage_03_practice_basic1" class="slide normal" data-transition="none">
+<div class="content normal" ref="02_usage/03_practice_basic:1">
 <h1>Basic Skills</h1>
 
 <p>Open, close, edit, save.</p>
@@ -467,59 +470,105 @@ learn, learn it, practice it.</p>
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="02_usage" data-title="03_practice_basic" id="02_usage_03_practice_basic3" class="slide normal center" data-transition="none">
-<div class="content normal center" ref="02_usage/03_practice_basic:3">
-<h1><em>Digression</em></h1>
-
+<div data-section="02_usage" data-title="03_practice_basic" id="02_usage_03_practice_basic3" class="slide normal bullets incremental" data-transition="none">
+<div class="content normal bullets incremental" ref="02_usage/03_practice_basic:3">
 <h2>Modal Editing</h2>
+
+<ul>
+<li>
+<strong>Normal</strong> - movement and action</li>
+<li>
+<strong>Visual</strong> - selection</li>
+<li>
+<strong>Insert</strong> - boring old plain old typing</li>
+<li>
+<strong>Command</strong> - substitution and plugin commands</li>
+<li>
+<strong>Ex-mode</strong> - only by accident</li>
+<li>
+<strong>Search?</strong> - it's kind of like a mode?</li>
+</ul>
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="02_usage" data-title="03_practice_basic" id="02_usage_03_practice_basic4" class="slide normal center" data-transition="none">
-<div class="content normal center" ref="02_usage/03_practice_basic:4">
+<div data-section="02_usage" data-title="03_practice_basic" id="02_usage_03_practice_basic4" class="slide normal bullets incremental" data-transition="none">
+<div class="content normal bullets incremental" ref="02_usage/03_practice_basic:4">
 <h1><em>Digression</em></h1>
 
 <h2>vimrc</h2>
 
-<p>Make saving easier, make things prettier.</p>
+<ul>
+<li>this is where your customizations will go. yours will be unique to you.</li>
+<li>but for your sanity, make saving easier</li>
+<li>and make things prettier</li>
+</ul>
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="02_usage" data-title="04_practice_movement" id="02_usage_04_practice_movement1" class="slide normal center" data-transition="none">
-<div class="content normal center" ref="02_usage/04_practice_movement:1">
+<div data-section="02_usage" data-title="03_practice_basic" id="02_usage_03_practice_basic5" class="slide code" data-transition="none">
+<div class="content code" ref="02_usage/03_practice_basic:5">
+<h1><em>Digression</em></h1>
+
+<pre class="highlight"><code class="language-vim">
+" saving
+map &lt;D-s&gt; :w&lt;CR&gt;           " just save
+imap &lt;D-s&gt; &lt;esc&gt;:w&lt;CR&gt;     " save and return to normal mode
+vmap &lt;D-s&gt; &lt;esc&gt;:w&lt;CR&gt;gv   " save and reselect
+
+" colors
+syntax on                  " Enable syntax highlighting
+filetype plugin indent on  " Enable filetype-specific
+                           " indenting and plugins
+set background=dark        "
+colorscheme desert         " best non-Solarized scheme</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="02_usage" data-title="04_practice_movement" id="02_usage_04_practice_movement1" class="slide normal" data-transition="none">
+<div class="content normal" ref="02_usage/04_practice_movement:1">
 <h1>Movement</h1>
 
 <p>Getting around at normal speeds vs. getting around quickly.</p>
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="02_usage" data-title="04_practice_movement" id="02_usage_04_practice_movement2" class="slide normal center" data-transition="none">
-<div class="content normal center" ref="02_usage/04_practice_movement:2">
+<div data-section="02_usage" data-title="04_practice_movement" id="02_usage_04_practice_movement2" class="slide normal" data-transition="none">
+<div class="content normal" ref="02_usage/04_practice_movement:2">
 <h2>Movement Keys</h2>
 
-<pre class="highlight"><code class="language-vim">h j l k
-e w b</code></pre>
+<pre><code>h j l k
+e w b
+</code></pre>
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="02_usage" data-title="04_practice_movement" id="02_usage_04_practice_movement3" class="slide normal center" data-transition="none">
-<div class="content normal center" ref="02_usage/04_practice_movement:3">
+<div data-section="02_usage" data-title="04_practice_movement" id="02_usage_04_practice_movement3" class="slide normal" data-transition="none">
+<div class="content normal" ref="02_usage/04_practice_movement:3">
 <h2>Search Based Movement</h2>
 
 <p>search mode, move to <strong>f</strong>irst character, move un<strong>t</strong>il you find</p>
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="02_usage" data-title="04_practice_movement" id="02_usage_04_practice_movement4" class="slide normal center" data-transition="none">
-<div class="content normal center" ref="02_usage/04_practice_movement:4">
+<div data-section="02_usage" data-title="04_practice_movement" id="02_usage_04_practice_movement4" class="slide normal" data-transition="none">
+<div class="content normal" ref="02_usage/04_practice_movement:4">
 <h2>Search Based Movement</h2>
 
-<pre class="highlight"><code class="language-vim">/ f t</code></pre>
+<pre><code>f t F T     " one line, forward / BACKWARD
+/ ?         " whole file, forward / backward
+</code></pre>
+
+<p>While searching</p>
+
+<pre><code>;           " one line find again
+n           " next
+N           " previous
+</code></pre>
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="02_usage" data-title="05_practice_selection" id="02_usage_05_practice_selection1" class="slide normal center" data-transition="none">
-<div class="content normal center" ref="02_usage/05_practice_selection:1">
+<div data-section="02_usage" data-title="05_practice_selection" id="02_usage_05_practice_selection1" class="slide normal" data-transition="none">
+<div class="content normal" ref="02_usage/05_practice_selection:1">
 <h1>Selection</h1>
 
 <p>Also known as "Visual Mode". Strong stuff.</p>
@@ -529,16 +578,42 @@ e w b</code></pre>
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="02_usage" data-title="05_practice_selection" id="02_usage_05_practice_selection2" class="slide normal center" data-transition="none">
-<div class="content normal center" ref="02_usage/05_practice_selection:2">
+<div data-section="02_usage" data-title="05_practice_selection" id="02_usage_05_practice_selection2" class="slide normal" data-transition="none">
+<div class="content normal" ref="02_usage/05_practice_selection:2">
+<h1>Selection</h1>
+
+<p>Works with simple movement</p>
+
+<pre><code>vlllllll    " select seven characters to the right
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="02_usage" data-title="05_practice_selection" id="02_usage_05_practice_selection3" class="slide normal" data-transition="none">
+<div class="content normal" ref="02_usage/05_practice_selection:3">
+<h1>Selection</h1>
+
+<p>Works with search</p>
+
+<pre><code>vf=         " select everything on this line
+            " up to and including the next =
+
+v/end&lt;CR&gt;   " select everything until you find
+            " the next word 'end'
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="02_usage" data-title="05_practice_selection" id="02_usage_05_practice_selection4" class="slide normal" data-transition="none">
+<div class="content normal" ref="02_usage/05_practice_selection:4">
 <h1>Yank and Paste</h1>
 
 <p><strong>y</strong>ank, <strong>p</strong>aste, <strong>c</strong>hange, <strong>d</strong>elete</p>
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="02_usage" data-title="05_practice_selection" id="02_usage_05_practice_selection3" class="slide normal center" data-transition="none">
-<div class="content normal center" ref="02_usage/05_practice_selection:3">
+<div data-section="02_usage" data-title="05_practice_selection" id="02_usage_05_practice_selection5" class="slide normal" data-transition="none">
+<div class="content normal" ref="02_usage/05_practice_selection:5">
 <h1>Yank and Paste</h1>
 
 <pre><code>y p P
@@ -548,36 +623,164 @@ yy dd
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="02_usage" data-title="05_practice_selection" id="02_usage_05_practice_selection4" class="slide normal center" data-transition="none">
-<div class="content normal center" ref="02_usage/05_practice_selection:4">
-<h1>COMBO! Selective Movement</h1>
+<div data-section="02_usage" data-title="05_practice_selection" id="02_usage_05_practice_selection6" class="slide normal" data-transition="none">
+<div class="content normal" ref="02_usage/05_practice_selection:6">
+<h1>TEXT OBJECTS</h1>
 
 <p><strong>v</strong>isual select <strong>a</strong>ll of a <strong>w</strong>ord, <strong>c</strong>hange <strong>i</strong>nside the <strong>"</strong>'s</p>
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="02_usage" data-title="05_practice_selection" id="02_usage_05_practice_selection5" class="slide normal center" data-transition="none">
-<div class="content normal center" ref="02_usage/05_practice_selection:5">
-<h1>COMBO! Selective Movement</h1>
+<div data-section="02_usage" data-title="05_practice_selection" id="02_usage_05_practice_selection7" class="slide normal" data-transition="none">
+<div class="content normal" ref="02_usage/05_practice_selection:7">
+<h1>TEXT OBJECTS</h1>
 
-<pre><code>vaw 
+<pre><code>vaw
 vi"
 va"
 ci(
 ciw
 </code></pre>
+
+<p><code>text-objects</code></p>
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="02_usage" data-title="05_practice_selection" id="02_usage_05_practice_selection6" class="slide" data-transition="none">
-<div class="content " ref="02_usage/05_practice_selection:6">
+<div data-section="02_usage" data-title="05_practice_selection" id="02_usage_05_practice_selection8" class="slide normal" data-transition="none">
+<div class="content normal" ref="02_usage/05_practice_selection:8">
+<h1>TEXT OBJECTS</h1>
+
+<p>one command</p>
+
+<pre><code>va"
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="02_usage" data-title="05_practice_selection" id="02_usage_05_practice_selection9" class="slide normal" data-transition="none">
+<div class="content normal" ref="02_usage/05_practice_selection:9">
+<h1>TEXT OBJECTS</h1>
+
+<p>two parts</p>
+
+<pre><code>va "
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="02_usage" data-title="05_practice_selection" id="02_usage_05_practice_selection10" class="slide normal" data-transition="none">
+<div class="content normal" ref="02_usage/05_practice_selection:10">
+<h1>TEXT OBJECTS</h1>
+
+<p>verb - subject</p>
+
+<pre><code>visual select all
+|
+va  "
+    |
+    of this quoted text
+</code></pre>
+
+<p>For example:</p>
+
+<pre><code>They said, "you're crazy! |It'll never work!"
+                          ^ cursor
+
+They said, "you're crazy! It'll never work!|"
+           ----------------------------------
+           ^ selection
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="02_usage" data-title="05_practice_selection" id="02_usage_05_practice_selection11" class="slide normal" data-transition="none">
+<div class="content normal" ref="02_usage/05_practice_selection:11">
+<h1>TEXT OBJECTS</h1>
+
+<p>BLAM! <code>text-objects</code>!</p>
+
+<pre><code>v[ia]_
+     w  word
+     s  sentence
+     p  paragraph
+     (  ()s
+     [  []s
+     {  {}s
+     &lt;  &lt;&gt;s
+     t  html tag
+     "  ""s
+     '  ''s
+</code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="02_usage" data-title="05_practice_selection" id="02_usage_05_practice_selection12" class="slide normal" data-transition="none">
+<div class="content normal" ref="02_usage/05_practice_selection:12">
+<h1>It Goes Both Ways!</h1>
+
+<p><code>o</code> while in visual mode puts the cursor at the <strong>o</strong>ther end of the selection.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="02_usage" data-title="05_practice_selection" id="02_usage_05_practice_selection13" class="slide normal" data-transition="none">
+<div class="content normal" ref="02_usage/05_practice_selection:13">
+<h1>
+<strong>BONUS</strong> TEXT OBJECTS</h1>
+
+<p>Also works with <strong>c</strong>hange, <strong>d</strong>elete, and <strong>y</strong>ank!</p>
+
+<pre><code>c[ia]_
+d[ia]_
+y[ia]_
+     w  word
+     s  sentence
+     p  paragraph
+     (  ()s
+     [  []s
+     {  {}s
+     &lt;  &lt;&gt;s
+     t  html tag
+     "  ""s
+     '  ''s
+</code></pre>
+
+<p>But visual first is nice because then you can see what you're doing.</p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="02_usage" data-title="05_practice_selection" id="02_usage_05_practice_selection14" class="slide" data-transition="none">
+<div class="content " ref="02_usage/05_practice_selection:14">
 <h1>Use a cheat sheet</h1>
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="02_usage" data-title="05_practice_selection" id="02_usage_05_practice_selection7" class="slide center" data-transition="none">
-<div class="content center" ref="02_usage/05_practice_selection:7">
+<div data-section="02_usage" data-title="05_practice_selection" id="02_usage_05_practice_selection15" class="slide center" data-transition="none">
+<div class="content center" ref="02_usage/05_practice_selection:15">
 <p><img src="./file//02_usage/vi-vim-cheat-sheet.gif" alt="cheat sheet"></p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="02_usage" data-title="05_practice_selection" id="02_usage_05_practice_selection16" class="slide normal bullets" data-transition="none">
+<div class="content normal bullets" ref="02_usage/05_practice_selection:16">
+<h1>
+<strong>s</strong>ubstitutions</h1>
+
+<p>Command mode, finally!</p>
+
+<p>One line:</p>
+
+<pre><code>:s/this/that/
+</code></pre>
+
+<p>All lines:</p>
+
+<pre><code>:%s/this/that/
+</code></pre>
+
+<p>Ask me each time:</p>
+
+<pre><code>:%s/this/that/c
+</code></pre>
 </div>
 <canvas class="annotations"></canvas>
 </div>
@@ -586,16 +789,15 @@ ciw
 <h1>Handling Multiple Files</h1>
 
 <ul>
-<li>splitting</li>
-<li>search</li>
-<li>essential plugins</li>
+<li>Splitting windows</li>
+<li>Working between files (hint: unix-style rears it's head)</li>
 </ul>
 </div>
 <canvas class="annotations"></canvas>
 </div>
 <div data-section="02_usage" data-title="06_practice_files" id="02_usage_06_practice_files2" class="slide normal bullets" data-transition="none">
 <div class="content normal bullets" ref="02_usage/06_practice_files:2">
-<h1>Splitting</h1>
+<h1>Splitting windows</h1>
 
 <p>&lt;C-w&gt; + ...</p>
 
@@ -613,6 +815,8 @@ ciw
 <div class="content normal" ref="02_usage/06_practice_files:3">
 <h1>Moving around splits</h1>
 
+<p>Shortcuts (highly recommended)</p>
+
 <pre><code>inoremap &lt;C-h&gt; &lt;esc&gt;&lt;C-w&gt;&lt;C-h&gt;
 inoremap &lt;C-j&gt; &lt;esc&gt;&lt;C-w&gt;&lt;C-j&gt;
 inoremap &lt;C-k&gt; &lt;esc&gt;&lt;C-w&gt;&lt;C-k&gt;
@@ -625,31 +829,23 @@ noremap &lt;C-l&gt; &lt;C-w&gt;&lt;C-l&gt;
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="02_usage" data-title="06_practice_files" id="02_usage_06_practice_files4" class="slide normal center" data-transition="none">
-<div class="content normal center" ref="02_usage/06_practice_files:4">
-<h1>Search</h1>
+<div data-section="02_usage" data-title="06_practice_files" id="02_usage_06_practice_files4" class="slide normal" data-transition="none">
+<div class="content normal" ref="02_usage/06_practice_files:4">
+<h1>Helpful Plugins for Multi-file Work</h1>
 
-<p>grep</p>
-</div>
-<canvas class="annotations"></canvas>
-</div>
-<div data-section="02_usage" data-title="06_practice_files" id="02_usage_06_practice_files5" class="slide normal" data-transition="none">
-<div class="content normal" ref="02_usage/06_practice_files:5">
-<h1>Search</h1>
+<h2>ag / ack</h2>
 
-<pre><code>:grep PATTERN
-:cn
-</code></pre>
-</div>
-<canvas class="annotations"></canvas>
-</div>
-<div data-section="02_usage" data-title="06_practice_files" id="02_usage_06_practice_files6" class="slide normal center" data-transition="none">
-<div class="content normal center" ref="02_usage/06_practice_files:6">
-<h1>Essential Plugins</h1>
+<p>Search - <code>ag</code> <a href="https://github.com/ggreer/the_silver_searcher">https://github.com/ggreer/the_silver_searcher</a></p>
+
+<p>Vim integration - <code>ack.vim</code> <a href="https://github.com/mileszs/ack.vim">https://github.com/mileszs/ack.vim</a></p>
 
 <h2>NERDTree</h2>
 
-<h2>Command-T</h2>
+<p>File browser - <a href="https://github.com/scrooloose/nerdtree">https://github.com/scrooloose/nerdtree</a></p>
+
+<h2>ctrlp</h2>
+
+<p>Fuzzy file finder - <a href="https://github.com/kien/ctrlp.vim">https://github.com/kien/ctrlp.vim</a></p>
 </div>
 <canvas class="annotations"></canvas>
 </div>
@@ -672,111 +868,120 @@ noremap &lt;C-l&gt; &lt;C-w&gt;&lt;C-l&gt;
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="03_extension" data-title="07_extending_vim" id="03_extension_07_extending_vim3" class="slide center" data-transition="none">
-<div class="content center" ref="03_extension/07_extending_vim:3">
+<div data-section="03_extension" data-title="07_extending_vim" id="03_extension_07_extending_vim3" class="slide" data-transition="none">
+<div class="content " ref="03_extension/07_extending_vim:3">
 <h1>Number 1 Rule of Modifying Vim...</h1>
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="03_extension" data-title="07_extending_vim" id="03_extension_07_extending_vim4" class="slide center" data-transition="none">
-<div class="content center" ref="03_extension/07_extending_vim:4">
+<div data-section="03_extension" data-title="07_extending_vim" id="03_extension_07_extending_vim4" class="slide" data-transition="none">
+<div class="content " ref="03_extension/07_extending_vim:4">
 <h1><strong>SOMEONE HAS ALREADY DONE IT</strong></h1>
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="03_extension" data-title="07_extending_vim" id="03_extension_07_extending_vim5" class="slide normal center bullets" data-transition="none">
-<div class="content normal center bullets" ref="03_extension/07_extending_vim:5">
+<div data-section="03_extension" data-title="07_extending_vim" id="03_extension_07_extending_vim5" class="slide normal bullets" data-transition="none">
+<div class="content normal bullets" ref="03_extension/07_extending_vim:5">
 <ul>
 <li><a href="https://github.com/search?type=Repositories&amp;language=vim&amp;q=vimrc&amp;repo=&amp;langOverride=&amp;x=0&amp;y=27&amp;start_value=1">github.com</a></li>
 </ul>
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="03_extension" data-title="07_extending_vim" id="03_extension_07_extending_vim6" class="slide full-page" data-transition="none">
-<div class="content full-page" ref="03_extension/07_extending_vim:6">
-<p><img src="./file//03_extension/vimrc-search.jpg" alt="search"></p>
+<div data-section="03_extension" data-title="07_extending_vim" id="03_extension_07_extending_vim6" style="background-image: url('file/03_extension/vimrc-search-full.png');" class="slide background-fit" data-transition="none">
+<div class="content background-fit" ref="03_extension/07_extending_vim:6">
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="03_extension" data-title="07_extending_vim" id="03_extension_07_extending_vim7" class="slide center bullets normal" data-transition="none">
-<div class="content center bullets normal" ref="03_extension/07_extending_vim:7">
+<div data-section="03_extension" data-title="07_extending_vim" id="03_extension_07_extending_vim7" class="slide center" data-transition="none">
+<div class="content center" ref="03_extension/07_extending_vim:7">
+<p><img src="./file//03_extension/vimrc-search-highlight.png" alt="search"></p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="03_extension" data-title="07_extending_vim" id="03_extension_07_extending_vim8" class="slide bullets normal" data-transition="none">
+<div class="content bullets normal" ref="03_extension/07_extending_vim:8">
 <h1>my vimrc</h1>
 
 <ul>
 <li><a href="https://github.com/abachman/dotfiles/blob/master/.vimrc">vimrc</a></li>
-<li><a href="https://github.com/abachman/dotfiles/blob/master/.gvimrc">gvimrc</a></li>
+<li>
+<a href="https://github.com/abachman/dotfiles/blob/master/.gvimrc">gvimrc</a> (just for the GUI)</li>
 </ul>
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="03_extension" data-title="07_extending_vim" id="03_extension_07_extending_vim8" class="slide center" data-transition="none">
-<div class="content center" ref="03_extension/07_extending_vim:8">
+<div data-section="03_extension" data-title="07_extending_vim" id="03_extension_07_extending_vim9" class="slide" data-transition="none">
+<div class="content " ref="03_extension/07_extending_vim:9">
 <h1>ignore scripting, it's not worth your time</h1>
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="03_extension" data-title="07_extending_vim" id="03_extension_07_extending_vim9" class="slide normal center" data-transition="none">
-<div class="content normal center" ref="03_extension/07_extending_vim:9">
+<div data-section="03_extension" data-title="07_extending_vim" id="03_extension_07_extending_vim10" class="slide normal" data-transition="none">
+<div class="content normal" ref="03_extension/07_extending_vim:10">
 <h1>some very handy plugins</h1>
 
-<p>NERDTree, Command-T, rails.vim, pathogen, Tabularize, closetag, zencoding, tim pope</p>
+<p>First: <strong>pathogen</strong> or other plugin loader</p>
+
+<p>NERDTree, ctrlp, rails.vim, Tabularize, closetag, etc.</p>
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="04_beyond" data-title="08_extending_your_brain" id="04_beyond_08_extending_your_brain1" class="slide center normal" data-transition="none">
-<div class="content center normal" ref="04_beyond/08_extending_your_brain:1">
+<div data-section="03_extension" data-title="07_extending_vim" id="03_extension_07_extending_vim11" class="slide full-image" data-transition="none">
+<div class="content full-image" ref="03_extension/07_extending_vim:11">
+<p><img src="./file//03_extension/current-plugins.png" alt="others"></p>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="04_beyond" data-title="08_extending_your_brain" id="04_beyond_08_extending_your_brain1" class="slide" data-transition="none">
+<div class="content " ref="04_beyond/08_extending_your_brain:1">
 <h1>What's Next?</h1>
 
 <p>Keep using it.</p>
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="04_beyond" data-title="08_extending_your_brain" id="04_beyond_08_extending_your_brain2" class="slide center normal" data-transition="none">
-<div class="content center normal" ref="04_beyond/08_extending_your_brain:2">
+<div data-section="04_beyond" data-title="08_extending_your_brain" id="04_beyond_08_extending_your_brain2" class="slide" data-transition="none">
+<div class="content " ref="04_beyond/08_extending_your_brain:2">
 <h1>What's Next?</h1>
 
-<p>Find reliable resources (like <a href="http://vimcasts.org">vimcasts.org</a>)</p>
+<p>Find reliable resources (like <a href="http://vimcasts.org">vimcasts.org</a>). This stuff is pretty timeless.</p>
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="04_beyond" data-title="08_extending_your_brain" id="04_beyond_08_extending_your_brain3" class="slide full-page" data-transition="none">
-<div class="content full-page" ref="04_beyond/08_extending_your_brain:3">
+<div data-section="04_beyond" data-title="08_extending_your_brain" id="04_beyond_08_extending_your_brain3" class="slide" data-transition="none">
+<div class="content " ref="04_beyond/08_extending_your_brain:3">
 <p><img src="./file//04_beyond/vim-casts.png" alt="vim casts"></p>
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="04_beyond" data-title="08_extending_your_brain" id="04_beyond_08_extending_your_brain4" class="slide center normal" data-transition="none">
-<div class="content center normal" ref="04_beyond/08_extending_your_brain:4">
+<div data-section="04_beyond" data-title="08_extending_your_brain" id="04_beyond_08_extending_your_brain4" class="slide" data-transition="none">
+<div class="content " ref="04_beyond/08_extending_your_brain:4">
 <h1>What's Next?</h1>
 
-<p>Ask questions (I'm usually around)</p>
+<p>Ask questions, I'm happy to answer.</p>
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="04_beyond" data-title="08_extending_your_brain" id="04_beyond_08_extending_your_brain5" class="slide center normal" data-transition="none">
-<div class="content center normal" ref="04_beyond/08_extending_your_brain:5">
+<div data-section="04_beyond" data-title="08_extending_your_brain" id="04_beyond_08_extending_your_brain5" class="slide" data-transition="none">
+<div class="content " ref="04_beyond/08_extending_your_brain:5">
 <h1>What's Next?</h1>
 
-<p>Have fun, this isn't punishment.</p>
+<p>Have fun, this isn't punishment. If you find something that fits, use that.</p>
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="04_beyond" data-title="08_extending_your_brain" id="04_beyond_08_extending_your_brain6" class="slide center normal" data-transition="none">
-<div class="content center normal" ref="04_beyond/08_extending_your_brain:6">
+<div data-section="04_beyond" data-title="08_extending_your_brain" id="04_beyond_08_extending_your_brain6" class="slide" data-transition="none">
+<div class="content " ref="04_beyond/08_extending_your_brain:6">
 <h1>What's Next?</h1>
 
-<p>Take it seriously, a craftsperson should know their tools.</p>
+<p>Take it seriously, a maker should know their tools.</p>
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="04_beyond" data-title="09_finale" id="04_beyond_09_finale" class="slide center normal" data-transition="none">
-<div class="content center normal" ref="04_beyond/09_finale">
-<h1>Done</h1>
-
-<p>Adam Bachman<br>
-<a href="mailto:adam.bachman@gmail.com">adam.bachman@gmail.com</a><br>
-<a href="http://github.com/abachman">github.com/abachman</a><br>
-<a href="http://adambachman.org">adambachman.org</a></p>
+<div data-section="04_beyond" data-title="08_extending_your_brain" id="04_beyond_08_extending_your_brain7" class="slide" data-transition="none">
+<div class="content " ref="04_beyond/08_extending_your_brain:7">
+<h1>Go get 'em, sport</h1>
 </div>
 <canvas class="annotations"></canvas>
 </div>
