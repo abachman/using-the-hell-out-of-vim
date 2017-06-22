@@ -462,16 +462,38 @@ learn, learn it, practice it.</p>
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="02_usage" data-title="03_practice_basic" id="02_usage_03_practice_basic2" class="slide code" data-transition="none">
-<div class="content code" ref="02_usage/03_practice_basic:2">
+<div data-section="02_usage" data-title="03_practice_basic" id="02_usage_03_practice_basic2" class="slide normal commandline" data-transition="none">
+<div class="content normal commandline" ref="02_usage/03_practice_basic:2">
 <h1>Basic Skills</h1>
 
-<pre class="highlight"><code class="language-vim">vim, i, &lt;esc&gt;, :q, :e, :w, &lt;CR&gt;</code></pre>
+<p>Learn <code>vim</code> The Hard Way™ (type this)</p>
+
+<pre><code><code class="command">$ vim helloworld.txt</code>
+<code class="result">i
+Hello World!&lt;esc&gt;
+:w&lt;CR&gt;
+:q&lt;CR&gt;
+</code></code></pre>
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="02_usage" data-title="03_practice_basic" id="02_usage_03_practice_basic3" class="slide normal bullets incremental" data-transition="none">
-<div class="content normal bullets incremental" ref="02_usage/03_practice_basic:3">
+<div data-section="02_usage" data-title="03_practice_basic" id="02_usage_03_practice_basic3" class="slide normal commandline" data-transition="none">
+<div class="content normal commandline" ref="02_usage/03_practice_basic:3">
+<h1>Basic Skills</h1>
+
+<p>Learn <code>vim</code> The Hard Way™ (type this)</p>
+
+<pre><code><code class="command">$ vim</code>
+<code class="result">:e helloworld.txt&lt;CR&gt;
+o
+Hello again!&lt;esc&gt;
+:wq&lt;CR&gt;
+</code></code></pre>
+</div>
+<canvas class="annotations"></canvas>
+</div>
+<div data-section="02_usage" data-title="03_practice_basic" id="02_usage_03_practice_basic4" class="slide normal bullets incremental" data-transition="none">
+<div class="content normal bullets incremental" ref="02_usage/03_practice_basic:4">
 <h2>Modal Editing</h2>
 
 <ul>
@@ -481,6 +503,7 @@ learn, learn it, practice it.</p>
 <strong>Visual</strong> - selection</li>
 <li>
 <strong>Insert</strong> - boring old plain old typing</li>
+<li><em>much less important ones</em></li>
 <li>
 <strong>Command</strong> - substitution and plugin commands</li>
 <li>
@@ -491,8 +514,8 @@ learn, learn it, practice it.</p>
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="02_usage" data-title="03_practice_basic" id="02_usage_03_practice_basic4" class="slide normal bullets incremental" data-transition="none">
-<div class="content normal bullets incremental" ref="02_usage/03_practice_basic:4">
+<div data-section="02_usage" data-title="03_practice_basic" id="02_usage_03_practice_basic5" class="slide normal bullets incremental" data-transition="none">
+<div class="content normal bullets incremental" ref="02_usage/03_practice_basic:5">
 <h1><em>Digression</em></h1>
 
 <h2>vimrc</h2>
@@ -505,8 +528,8 @@ learn, learn it, practice it.</p>
 </div>
 <canvas class="annotations"></canvas>
 </div>
-<div data-section="02_usage" data-title="03_practice_basic" id="02_usage_03_practice_basic5" class="slide code" data-transition="none">
-<div class="content code" ref="02_usage/03_practice_basic:5">
+<div data-section="02_usage" data-title="03_practice_basic" id="02_usage_03_practice_basic6" class="slide code" data-transition="none">
+<div class="content code" ref="02_usage/03_practice_basic:6">
 <h1><em>Digression</em></h1>
 
 <pre class="highlight"><code class="language-vim">
@@ -923,7 +946,7 @@ noremap &lt;C-l&gt; &lt;C-w&gt;&lt;C-l&gt;
 
 <p>First: <strong>pathogen</strong> or other plugin loader</p>
 
-<p>NERDTree, ctrlp, rails.vim, Tabularize, closetag, etc.</p>
+<p>Second: NERDTree, ctrlp, bufexplorer, rails.vim, Tabularize, closetag, fugitive, syntastic, vim-surround, etc.</p>
 </div>
 <canvas class="annotations"></canvas>
 </div>
