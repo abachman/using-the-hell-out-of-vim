@@ -3,11 +3,27 @@
 
 Open, close, edit, save.
 
-!SLIDE code
+!SLIDE normal commandline
 # Basic Skills
 
-    @@@vim
-    vim, i, <esc>, :q, :e, :w, <CR>
+Learn `vim` The Hard Way™ (type this)
+
+    $ vim helloworld.txt
+    i
+    Hello World!<esc>
+    :w<CR>
+    :q<CR>
+
+!SLIDE normal commandline
+# Basic Skills
+
+Learn `vim` The Hard Way™ (type this)
+
+    $ vim
+    :e helloworld.txt<CR>
+    o
+    Hello again!<esc>
+    :wq<CR>
 
 !SLIDE normal bullets incremental
 ## Modal Editing
@@ -15,6 +31,7 @@ Open, close, edit, save.
 * **Normal** - movement and action
 * **Visual** - selection
 * **Insert** - boring old plain old typing
+* *much less important ones*
 * **Command** - substitution and plugin commands
 * **Ex-mode** - only by accident
 * **Search?** - it's kind of like a mode?
