@@ -3,7 +3,7 @@
 
 ## *Seeking Editor Purity by Driving Evil Away*
 
-[using-vim.heroku.com](http://using-vim.heroku.com)
+[abachman.github.io/using-the-hell-out-of-vim/](http://abachman.github.io/using-the-hell-out-of-vim/)
 
 !SLIDE dark-image center
 
