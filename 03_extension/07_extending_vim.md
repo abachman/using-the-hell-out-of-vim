@@ -39,7 +39,7 @@
 
 First: **pathogen** or other plugin loader
 
-NERDTree, ctrlp, rails.vim, Tabularize, closetag, etc.
+Second: NERDTree, ctrlp, bufexplorer, rails.vim, Tabularize, closetag, fugitive, syntastic, vim-surround, etc.
 
 !SLIDE full-image
 
